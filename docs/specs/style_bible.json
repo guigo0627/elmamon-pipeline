@@ -1,0 +1,55 @@
+{
+  "descripcion": "Guía de estilo visual para todos los personajes y escenarios del canal",
+  "estilo_general": "Ilustración de comedia webcomic/reel, línea simple y expresiva, rasgos exagerados, colores planos y vibrantes, sin realismo fotográfico",
+
+  "mascotas": {
+    "perro": {
+      "descripcion_base": "Perro mediano de dibujo cartoon con rasgos exagerados: ojos grandes y expresivos, cejas marcadas, orejas largas caídas, hocico corto, boca muy expresiva. Colores cálidos (café, beige, blanco). Textura peluda visible pero simplificada. Postura erguida humanizada, sentado o de pie. Expresiones faciales muy marcadas.",
+      "personalidad_visual": "Diseño que permite expresar sarcasmo, gruñón, ingenuo según el guion"
+    },
+    "gato": {
+      "descripcion_base": "Gato de dibujo cartoon con rasgos exagerados: ojos enormes y redondos, cejas arqueadas expresivas, orejas puntiagudas grandes, bigotes prominentes, boca muy expresiva. Colores diversos (naranja/blanco, gris/blanco, negro). Textura peluda visible pero simplificada. Postura erguida humanizada, sentado o de pie. Expresiones faciales muy marcadas.",
+      "personalidad_visual": "Diseño que permite expresar indiferencia, malicia, sorpresa según el guion"
+    },
+    "loro": {
+      "descripcion_base": "Loro de dibujo cartoon con rasgos exagerados: ojos grandes y redondos, pico curvo prominente, plumas coloridas (verde, rojo, amarillo, azul), cresta levantada. Textura plumada visible pero simplificada. Postura erguida humanizada, parado en una percha o posado. Expresiones faciales muy marcadas incluso con pico.",
+      "personalidad_visual": "Diseño que permite expresar escándalo, picardía, sabiduría según el guion"
+    }
+  },
+
+  "humanos": {
+    "descripcion_base": "Personajes humanos de línea simple/minimalista con rasgos EXAGERADOS: ojos grandes y expresivos, cejas gruesas y marcadas, narices simplificadas, bocas grandes y expresivas. Proporciones ligeramente caricaturescas. Colores planos. Ropa simple y reconocible según el rol.",
+    "roles": {
+      "papá": "Hombre adulto 35-45 años, ropa casual (camisa o camiseta), rasgos faciales exagerados, expresión entre cansado y paciente",
+      "mamá": "Mujer adulta 30-40 años, ropa casual (blusa o camiseta), rasgos faciales exagerados, expresión entre comprensiva y firme",
+      "hijo": "Niño/adolescente 10-16 años, ropa juvenil (camiseta), rasgos faciales exagerados, expresión curiosa o traviesa",
+      "hija": "Niña/adolescente 10-16 años, ropa juvenil (camiseta o blusa), rasgos faciales exagerados, expresión curiosa o seria",
+      "abuelo": "Hombre mayor 60+, ropa casual (camisa), rasgos faciales exagerados con arrugas marcadas, expresión sabia o gruñona",
+      "abuela": "Mujer mayor 60+, ropa casual, rasgos faciales exagerados con arrugas suaves, expresión cariñosa o estricta"
+    }
+  },
+
+  "escenarios": {
+    "sala": "Sala de casa latinoamericana típica: sofá simple, TV al fondo, pared con cuadro o foto familiar, colores cálidos (beige, café, terracota), estilo minimalista cartoon",
+    "cocina": "Cocina familiar: mesa con sillas, refrigerador al fondo, alacena visible, colores cálidos y limpios, estilo minimalista cartoon",
+    "jardín": "Jardín/patio de casa: pasto verde, cerca de madera, cielo azul, algún árbol o arbusto simple, estilo minimalista cartoon",
+    "habitación": "Habitación familiar: cama simple, ventana con cortina, estante o mesa de noche, colores cálidos, estilo minimalista cartoon",
+    "auto": "Interior de auto familiar (vista frontal): asientos delanteros, volante, ventanas con paisaje exterior simple, colores neutros"
+  },
+
+  "cutaways": {
+    "estilo": "Ilustraciones cómicas exageradas que visualizan lo mencionado en el diálogo. Mismo estilo cartoon que los personajes: líneas simples, colores planos, rasgos exagerados. NUNCA usar memes reales o imágenes con copyright. NUNCA incluir texto en las imágenes.",
+    "ejemplos": [
+      "Comida quemada: olla humeante con llamas exageradas, colores oscuros/negros",
+      "Control remoto perdido: sofá con cojines volteados, señal de búsqueda, estilo caótico",
+      "Celular con batería baja: celular cartoon con símbolo de batería roja parpadeante"
+    ]
+  },
+
+  "paleta_colores": {
+    "personajes_calidos": ["#F4A460", "#DEB887", "#8B4513", "#FFDAB9"],
+    "personajes_frios": ["#708090", "#2F4F4F", "#000000", "#FFFFFF"],
+    "escenarios": ["#FFF8DC", "#FAEBD7", "#D2B48C", "#87CEEB"],
+    "acentos": ["#FF6347", "#FFD700", "#32CD32", "#FF69B4"]
+  }
+}

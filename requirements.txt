@@ -1,0 +1,19 @@
+# APIs y HTTP
+anthropic>=0.39.0
+requests>=2.31.0
+replicate>=0.25.0
+
+# Audio y video
+elevenlabs>=1.0.0
+ffmpeg-python>=0.2.0
+
+# Procesamiento de imágenes
+Pillow>=10.0.0
+rembg>=2.0.50
+
+# Utilidades
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+
+# Logging y debugging
+colorlog>=6.7.0
