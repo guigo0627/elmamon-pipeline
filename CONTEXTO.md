@@ -162,12 +162,36 @@ elmamon-pipeline/
 
 ## 🚀 Próximos Pasos Inmediatos
 
+### 0. Investigar Conectores/MCP para Reducir Costos 🔍 **PRIORITARIO**
+
+**Objetivo:** Explorar si Claude tiene conectores (MCP) disponibles que puedan generar videos completos o parciales, reduciendo la necesidad de múltiples APIs.
+
+**Opciones a investigar:**
+- [ ] **YouTube ART** o herramientas similares de generación de video
+- [ ] Conectores MCP disponibles en Claude
+- [ ] APIs alternativas más económicas para:
+  - Generación de imágenes (alternativas a Replicate)
+  - Síntesis de voz (alternativas a ElevenLabs)
+  - Animación de personajes (alternativas a Hedra)
+- [ ] Soluciones open-source que podamos hostear localmente
+
+**Beneficio esperado:**
+- Reducir costos de $1.50/video a < $0.50/video
+- Simplificar el pipeline (menos APIs = menos complejidad)
+- Posibilidad de generar más videos en Fase 1
+
+**Referencias:**
+- Claude MCP: https://docs.anthropic.com/en/docs/build-with-claude/mcp
+- Investigar en Claude Code si hay plugins/herramientas disponibles
+
+---
+
 ### 1. Desarrollar Etapa 2: Generación de Imágenes 🎨
 
 **Archivo:** `scripts/03_imagenes.py`
 
 **Tareas:**
-- [ ] Integrar Replicate API
+- [ ] Integrar Replicate API (o alternativa más económica)
 - [ ] Cargar style_bible.json
 - [ ] Generar personajes (mascota + humanos)
 - [ ] Generar fondo según escenario
@@ -176,6 +200,8 @@ elmamon-pipeline/
 - [ ] Guardar en `output/###-yyyyMMdd/personajes/`
 
 **Probar con:** Video 001-20260904
+
+**Nota:** Esperar a investigación de conectores antes de implementar
 
 ### 2. Documentar aprendizajes
 
