@@ -292,17 +292,14 @@ class StickFigure:
         if self.has_hair:
             self._draw_female_hair(draw, x, head_center_y)
 
-        # CABEZA: forma diferente según género
-        if self.has_hair:  # Mujer = forma de CORAZÓN con mejillas
-            self._draw_heart_shaped_head(draw, x, head_center_y)
-        else:  # Hombre = círculo normal
-            head_box = [
-                x - self.head_radius,
-                y - self.body_height - self.head_radius * 2,
-                x + self.head_radius,
-                y - self.body_height
-            ]
-            draw_hand_drawn_ellipse(draw, head_box, fill=self.skin_color, outline=self.line_color, width=self.line_width)
+        # CABEZA: circular para todos (cara de corazón rechazada)
+        head_box = [
+            x - self.head_radius,
+            y - self.body_height - self.head_radius * 2,
+            x + self.head_radius,
+            y - self.body_height
+        ]
+        draw_hand_drawn_ellipse(draw, head_box, fill=self.skin_color, outline=self.line_color, width=self.line_width)
 
         # OJOS GRANDES ESTILO CARTOON (40% de la cara)
         eye_y = y - self.body_height - int(self.head_radius * 1.2)
@@ -522,6 +519,37 @@ class StickFigure:
                      fill=self.line_color, width=self.arm_width)
             draw_hand_drawn_line(draw, (shoulder_x_right, shoulder_y), (x - int(self.arm_length * 0.3), shoulder_y + int(self.arm_length * 0.9)),
                      fill=self.line_color, width=self.arm_width)
+
+        elif self.gesture in ['phone_call', 'celular', 'llamada']:
+            # Hablando por celular - brazo derecho levantado a la oreja
+            # Brazo izquierdo: a un lado relajado
+            draw_hand_drawn_line(draw, (shoulder_x_left, shoulder_y),
+                               (shoulder_x_left - int(self.arm_length * 0.3), shoulder_y + int(self.arm_length * 0.8)),
+                               fill=self.line_color, width=self.arm_width)
+
+            # Brazo derecho: levantado hacia la oreja (lado de la cabeza)
+            head_side_x = x + int(self.head_radius * 0.7)  # Lado derecho de la cabeza
+            head_ear_y = shoulder_y - int(self.body_height * 0.4)  # Altura de la oreja
+
+            # Brazo derecho curvado hacia la oreja
+            draw_hand_drawn_line(draw, (shoulder_x_right, shoulder_y),
+                               (head_side_x + 10, head_ear_y),
+                               fill=self.line_color, width=self.arm_width)
+
+            # Celular (DOBLE DE GRANDE - más visible)
+            phone_w = 36  # Doble: 18 → 36
+            phone_h = 60  # Doble: 30 → 60
+            phone_x = head_side_x + 5
+            phone_y_top = head_ear_y - phone_h//2
+            phone_y_bot = head_ear_y + phone_h//2
+
+            # Rectángulo del celular (más grueso)
+            draw.rectangle([phone_x, phone_y_top, phone_x + phone_w, phone_y_bot],
+                          fill='#2C2C2C', outline=self.line_color, width=4)
+
+            # Pantalla del celular (azul más grande)
+            draw.rectangle([phone_x + 5, phone_y_top + 8, phone_x + phone_w - 5, phone_y_bot - 8],
+                          fill='#4A90E2', outline='#333333', width=2)
 
         else:
             # Default: brazos normales desde BORDE del óvalo

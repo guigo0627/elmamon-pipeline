@@ -79,7 +79,7 @@ def detect_speaker_from_lip_sync(frame_num, lip_sync_data, alternation_pattern=N
         alternation_pattern: Patrón de alternancia (lista de tuplas (start_frame, speaker))
 
     Returns:
-        str: 'char1' (mama) o 'char2' (papa)
+        str: 'char1' (papa - hombre) o 'char2' (mama - mujer)
     """
     if alternation_pattern:
         # Usar patrón predefinido
@@ -93,14 +93,8 @@ def detect_speaker_from_lip_sync(frame_num, lip_sync_data, alternation_pattern=N
                     return speaker
         return 'char1'  # Default
 
-    # Auto-detect: alternar cada 3 segundos (simplificado)
-    fps = lip_sync_data.get('fps', 30)
-    segment_duration = 3  # segundos
-    segment_frames = fps * segment_duration
-    segment_num = frame_num // segment_frames
-
-    # Alternar: segmento par = char1, impar = char2
-    return 'char1' if segment_num % 2 == 0 else 'char2'
+    # Si no hay patrón: todo el hombre (para este caso específico)
+    return 'char1'
 
 
 def generate_frame_dual_background(
@@ -135,40 +129,45 @@ def generate_frame_dual_background(
     frame_state = lip_sync_data['frame_states'][frame_num]
     mouth_state = frame_state['mouth_state']
 
-    # Parpadeo natural
-    blink_cycle = 50
-    blink_duration = 3
-    blink = (frame_num % blink_cycle) < blink_duration and mouth_state == 'closed'
+    # Parpadeo natural (cíclico)
+    blink_cycle = 50  # Parpadea cada 50 frames (~1.6s)
+    blink_duration = 3  # Duración del parpadeo: 3 frames
+
+    # Para hombre: parpadea cuando tiene boca cerrada
+    blink_hombre = (frame_num % blink_cycle) < blink_duration and mouth_state == 'closed'
+
+    # Para mujer: parpadea siempre (cada 50 frames, independiente de mouth_state)
+    blink_mujer = (frame_num % blink_cycle) < blink_duration
 
     # Floor position (90% de la altura)
     floor_y = int(output_size[1] * 0.90)
     char_height = int(output_size[1] * 0.75)
 
     if speaker == 'char1':
-        # Mostrar PAPA (hombre) hablando
+        # Mostrar PAPA (hombre) hablando por celular
         char_data = {'type': 'papa', 'position': 'center'}
         char_img = create_character_frame(
             char_data,
             expression='sumiso',
-            gesture='arms_crossed',  # Gesture disponible
-            mouth_state=mouth_state,
+            gesture='phone_call',  # ✅ Celular en oreja
+            mouth_state=mouth_state,  # Usa lip sync real
             width=600,
             height=1200,
             transparent_bg=True,
-            blink=blink
+            blink=blink_hombre  # Parpadeo cuando boca cerrada
         )
     else:
-        # Mostrar MAMA (mujer) escuchando/respondiendo
+        # Mostrar MAMA (mujer) SOLO ESCUCHANDO por celular
         char_data = {'type': 'mama', 'position': 'center'}
         char_img = create_character_frame(
             char_data,
             expression='disculpa',
-            gesture='hands_together_apologetic',  # Gesture disponible
-            mouth_state=mouth_state,
+            gesture='phone_call',  # ✅ Celular en oreja
+            mouth_state='closed',  # SIEMPRE cerrada - solo escucha
             width=600,
             height=1200,
             transparent_bg=True,
-            blink=blink
+            blink=blink_mujer  # Parpadeo cíclico cada ~1.6s
         )
 
     # Redimensionar personaje
@@ -183,6 +182,47 @@ def generate_frame_dual_background(
     background.paste(char_img, (x, y), char_img)
 
     return background
+
+
+def create_alternation_pattern_minimal(total_frames, fps=30):
+    """
+    Crea patrón de alternancia con solo 2 apariciones de la mujer
+
+    Args:
+        total_frames: Total de frames del video
+        fps: FPS del video
+
+    Returns:
+        list: Lista de (frame_start, speaker)
+    """
+    # La mujer aparece solo 2 veces en momentos clave
+    # Resto del tiempo: hombre hablando
+
+    duration_seconds = total_frames / fps
+
+    # Primera aparición: 6 segundos (frame 180 @ 30fps)
+    first_appearance_frame = int(6 * fps)  # 6 segundos exactos
+    first_duration_frames = int(fps * 3)  # 3 segundos (para asegurar parpadeo)
+
+    # Segunda aparición: ~75% del video (segundo ~20-22)
+    second_appearance_frame = int(total_frames * 0.75)
+    second_duration_frames = int(fps * 3)  # 3 segundos (para asegurar parpadeo)
+
+    pattern = [
+        (0, 'char1'),  # Hombre desde inicio
+        (first_appearance_frame, 'char2'),  # Mujer aparece
+        (first_appearance_frame + first_duration_frames, 'char1'),  # Vuelve hombre
+        (second_appearance_frame, 'char2'),  # Mujer aparece otra vez
+        (second_appearance_frame + second_duration_frames, 'char1'),  # Final: hombre
+    ]
+
+    logger.info("📊 Patrón de alternancia creado:")
+    for frame, speaker in pattern:
+        second = frame / fps
+        char_name = "HOMBRE" if speaker == 'char1' else "MUJER"
+        logger.info(f"   Frame {frame} ({second:.1f}s): {char_name}")
+
+    return pattern
 
 
 def generate_video_dual_backgrounds(
@@ -201,7 +241,7 @@ def generate_video_dual_backgrounds(
         lip_sync_data: Datos de lip sync
         background1_path: Path al background 1 (o None para gradiente)
         background2_path: Path al background 2 (o None para gradiente)
-        alternation_pattern: Patrón de alternancia opcional
+        alternation_pattern: Patrón de alternancia opcional (si None, usa minimal)
         fps: FPS del video
 
     Returns:
@@ -216,6 +256,12 @@ def generate_video_dual_backgrounds(
     logger.info("=" * 70)
     logger.info("🎬 GENERANDO VIDEO CON 2 FONDOS")
     logger.info("=" * 70)
+
+    # Crear patrón minimal si no se proporcionó uno
+    if alternation_pattern is None:
+        total_frames = len(lip_sync_data['frame_states'])
+        alternation_pattern = create_alternation_pattern_minimal(total_frames, fps)
+        logger.info("✅ Usando patrón minimal: solo 2 apariciones de mujer")
 
     # Cargar o crear backgrounds
     if background1_path and Path(background1_path).exists():
