@@ -1,0 +1,23 @@
+{
+  "filename": "sala_01.png",
+  "description": "Sala de casa sencilla con comedor y piso de madera",
+  "floor_position": {
+    "y_pixels": 1730,
+    "percentage": 0.90,
+    "method": "manual",
+    "notes": "Piso de madera visible. Ajustado a 90% para evitar que personajes queden sobre mesa de comedor"
+  },
+  "sitting_positions": {
+    "left_chair": {
+      "x": 270,
+      "y": 1550,
+      "available": true
+    },
+    "right_chair": {
+      "x": 810,
+      "y": 1550,
+      "available": true
+    }
+  },
+  "notes": "Piso de madera claramente visible en parte inferior. Mesa de comedor presente, personajes deben estar parados SOBRE el piso o sentados en sillas de comedor."
+}
