@@ -145,7 +145,17 @@ def add_title_to_video(video_path, animation_plan_path, output_path=None):
 def main():
     """Test del módulo"""
     base_dir = Path(__file__).parent.parent.parent
-    output_dir = base_dir / "output" / "003-20260912"
+    output_base = base_dir / "output"
+
+    # Buscar directorio más reciente
+    video_dirs = sorted([d for d in output_base.glob("*-*") if d.is_dir()], reverse=True)
+
+    if not video_dirs:
+        logger.error(f"❌ No se encontraron directorios en {output_base}")
+        return False
+
+    output_dir = video_dirs[0]
+    logger.info(f"📁 Procesando: {output_dir.name}")
 
     video_path = output_dir / "scene_00s.mp4"
     animation_plan_path = output_dir / "animation_plan.json"
