@@ -1,55 +1,197 @@
 {
   "descripcion": "Guía de estilo visual para todos los personajes y escenarios del canal",
-  "estilo_general": "Ilustración de comedia webcomic/reel, línea simple y expresiva, rasgos exagerados, colores planos y vibrantes, sin realismo fotográfico",
+  "estilo_general": "Stick figure minimalista estilo webcomic/reel, personajes tipo 'palitos' con OJOS ENORMES expresivos, línea simple, rasgos exagerados, colores planos y vibrantes, sin realismo fotográfico. Estilo similar a memes animados populares de redes sociales.",
+
+  "especificaciones_tecnicas": {
+    "formato": "Vertical 9:16 para YouTube Shorts/Reels/TikTok",
+    "resolucion": "1080x1920 px",
+    "orientacion": "SIEMPRE vertical, NUNCA horizontal",
+    "keywords_flux": "stick figure, simple character, big round eyes, minimalist cartoon, vertical format, animation-ready pose"
+  },
+
+  "requisitos_animacion": {
+    "boca": "SIEMPRE visible y claramente definida (necesaria para lip-sync)",
+    "brazos": "Separados del cuerpo, articulados, en poses expresivas (levantados, extendidos, en cabeza)",
+    "piernas": "Separadas del cuerpo, simples pero visibles",
+    "expresiones": "EXAGERADAS - ojos MUY grandes (50% del rostro), boca grande abierta, gestos dramáticos",
+    "poses_clave": [
+      "Brazos levantados (sorpresa)",
+      "Manos en cabeza (confusión/desesperación)",
+      "Brazos extendidos (explicando)",
+      "Brazo señalando",
+      "Pose neutral con boca abierta (hablando)"
+    ]
+  },
 
   "mascotas": {
+    "NOTA_CRITICA": "MASCOTAS = HIJO/HERMANO HUMANO CON CARA DE ANIMAL. NO son 'animales vestidos'. Son PERSONAS con cuerpo BLANCO/GRIS (igual que humanos) que solo tienen CARA de animal. Metáfora: el gato ES un hijo, el perro ES un hermano. Estilo Paint IMPERFECTO con líneas temblorosas.",
+
     "perro": {
-      "descripcion_base": "Perro mediano de dibujo cartoon con rasgos exagerados: ojos grandes y expresivos, cejas marcadas, orejas largas caídas, hocico corto, boca muy expresiva. Colores cálidos (café, beige, blanco). Textura peluda visible pero simplificada. Postura erguida humanizada, sentado o de pie. Expresiones faciales muy marcadas.",
-      "personalidad_visual": "Diseño que permite expresar sarcasmo, gruñón, ingenuo según el guion"
+      "descripcion_base": "PERSONA con cara de perro: CABEZA círculo BLANCO con cara simple de perro dibujada (orejas caídas simples, hocico pequeño, ojos círculos negros, nariz punto), CUERPO HUMANO BLANCO/GRIS (sin color, igual que humanos), BRAZOS BLANCOS líneas simples, PIERNAS BLANCAS líneas simples, ROPA DE COLOR (camiseta roja/azul/gris, pantalones azules/negros), parado/sentado posición humana. Estilo Paint IMPERFECTO: líneas temblorosas, trazos no perfectos, dibujo casero.",
+      "personalidad_visual": "Hijo/hermano humano que tiene cara de perro, NO perro vestido",
+      "color_cuerpo": "BLANCO o GRIS claro (sin color)",
+      "ropa": ["camiseta roja", "camiseta azul", "camiseta gris", "pantalones azules", "pantalones negros"],
+      "ejemplo_prompt": "MS Paint style drawing, person with simple dog face on WHITE circular head, WHITE/GRAY body and limbs, wearing colored t-shirt and pants, standing like human, imperfect lines, wobbly strokes, homemade drawing, simple black outlines, flat colors, vertical 9:16, paint drawing"
     },
+
     "gato": {
-      "descripcion_base": "Gato de dibujo cartoon con rasgos exagerados: ojos enormes y redondos, cejas arqueadas expresivas, orejas puntiagudas grandes, bigotes prominentes, boca muy expresiva. Colores diversos (naranja/blanco, gris/blanco, negro). Textura peluda visible pero simplificada. Postura erguida humanizada, sentado o de pie. Expresiones faciales muy marcadas.",
-      "personalidad_visual": "Diseño que permite expresar indiferencia, malicia, sorpresa según el guion"
+      "descripcion_base": "HIJO con cabeza de GATO: CABEZA ovalada con OREJAS DE GATO triangulares grandes arriba, OJOS grandes circulares, NARIZ pequeña punto, BOCA pequeña, PIEL/CARA/MANOS COLOR BLANCO (para simular blanco y negro), CUERPO HUMANO normal, BRAZOS y PIERNAS con piel blanca, ROPA COLORIDA variable (camiseta color + pantalones color), posición humana parado/sentado. LÍNEAS NEGRAS GRUESAS (3-4px), colores planos, estilo dibujo simple.",
+      "personalidad_visual": "Hijo humano con cabeza forma de gato, piel blanca, ropa colorida",
+      "color_piel": "BLANCO (cara, manos, brazos, piernas)",
+      "ropa_colores_variables": ["camiseta azul", "camiseta roja", "camiseta verde", "camiseta morada", "pantalones grises", "pantalones azules", "pantalones negros", "pantalones cafés"],
+      "ejemplo_prompt": "simple cartoon drawing, character with cat-shaped head with big triangular ears on top, large circular eyes, small nose dot, small mouth, WHITE skin on face and hands, human body wearing colored t-shirt and pants, standing like human, thick black outlines 3-4px, flat colors, clean simple style, vertical 9:16, white background"
     },
+
     "loro": {
-      "descripcion_base": "Loro de dibujo cartoon con rasgos exagerados: ojos grandes y redondos, pico curvo prominente, plumas coloridas (verde, rojo, amarillo, azul), cresta levantada. Textura plumada visible pero simplificada. Postura erguida humanizada, parado en una percha o posado. Expresiones faciales muy marcadas incluso con pico.",
-      "personalidad_visual": "Diseño que permite expresar escándalo, picardía, sabiduría según el guion"
+      "descripcion_base": "PERSONA con cara de loro: CABEZA círculo BLANCO con cara simple de loro dibujada (pico curvo, ojos círculos grandes), CUERPO HUMANO BLANCO/GRIS (sin color), BRAZOS BLANCOS líneas simples, PIERNAS BLANCAS líneas simples, ROPA DE COLOR (camiseta roja/verde, pantalones negros/grises), parado/sentado posición humana. Estilo Paint IMPERFECTO: líneas temblorosas, dibujo casero.",
+      "personalidad_visual": "Hijo/hermano humano que tiene cara de loro, NO loro vestido",
+      "color_cuerpo": "BLANCO o GRIS claro (sin color)",
+      "ropa": ["camiseta roja", "camiseta verde", "pantalones negros", "pantalones grises"],
+      "ejemplo_prompt": "MS Paint style drawing, person with simple bird face on WHITE circular head, WHITE/GRAY body and limbs, wearing colored t-shirt and pants, standing like human, imperfect lines, wobbly strokes, vertical 9:16, paint drawing"
     }
   },
 
   "humanos": {
-    "descripcion_base": "Personajes humanos de línea simple/minimalista con rasgos EXAGERADOS: ojos grandes y expresivos, cejas gruesas y marcadas, narices simplificadas, bocas grandes y expresivas. Proporciones ligeramente caricaturescas. Colores planos. Ropa simple y reconocible según el rol.",
+    "NOTA_CRITICA": "Humanos en estilo Paint IMPERFECTO. Cuerpo BLANCO/GRIS, ropa DE COLOR. Cara con OJOS, NARIZ, BOCA visibles. Mujeres DEBEN tener CABELLO LARGO. Líneas temblorosas, trazos imperfectos, dibujo casero.",
+
+    "descripcion_base": "Personaje humano estilo Paint: CABEZA circular BLANCA/GRIS, CARA con OJOS (círculos negros), NARIZ (punto o línea pequeña), BOCA (línea curva), CUERPO BLANCO/GRIS (sin color), ROPA DE COLOR (camiseta + pantalones), BRAZOS y PIERNAS líneas negras simples. Estilo Paint IMPERFECTO: líneas temblorosas, no rectas perfectas, trazos irregulares, dibujo casero.",
+
+    "nota_diferenciacion": "Diferenciar personajes por: CABELLO (mujeres largo, hombres corto/sin), COLOR DE ROPA, altura, accesorios (lentes = círculos)",
+
     "roles": {
-      "papá": "Hombre adulto 35-45 años, ropa casual (camisa o camiseta), rasgos faciales exagerados, expresión entre cansado y paciente",
-      "mamá": "Mujer adulta 30-40 años, ropa casual (blusa o camiseta), rasgos faciales exagerados, expresión entre comprensiva y firme",
-      "hijo": "Niño/adolescente 10-16 años, ropa juvenil (camiseta), rasgos faciales exagerados, expresión curiosa o traviesa",
-      "hija": "Niña/adolescente 10-16 años, ropa juvenil (camiseta o blusa), rasgos faciales exagerados, expresión curiosa o seria",
-      "abuelo": "Hombre mayor 60+, ropa casual (camisa), rasgos faciales exagerados con arrugas marcadas, expresión sabia o gruñona",
-      "abuela": "Mujer mayor 60+, ropa casual, rasgos faciales exagerados con arrugas suaves, expresión cariñosa o estricta"
+      "papá": {
+        "descripcion": "Hombre adulto estilo Paint con cuerpo blanco/gris",
+        "caracteristicas": "Cabeza circular blanca, ojos círculos negros, nariz punto, boca línea, SIN cabello o cabello muy corto, cuerpo blanco/gris, camiseta azul/roja/gris, pantalones oscuros, brazos/piernas líneas, altura mayor",
+        "ejemplo_prompt": "MS Paint style drawing, man with WHITE circular head, black dot eyes, small nose, simple mouth line, short or no hair, WHITE/GRAY body, wearing blue t-shirt and black pants, standing, imperfect lines, wobbly strokes, homemade drawing, vertical 9:16, paint drawing"
+      },
+      "mamá": {
+        "descripcion": "Mujer adulta con CABELLO NEGRO LARGO TUPIDO y piel blanca",
+        "caracteristicas": "Cabeza circular blanca, ojos grandes circulares, nariz pequeña, boca pequeña, CABELLO NEGRO LARGO TUPIDO (líneas negras densas cayendo a los lados), PIEL BLANCA (cara, manos, brazos, piernas), cuerpo humano normal, ROPA COLORIDA variable (camiseta color + pantalones color), LÍNEAS NEGRAS GRUESAS (3-4px)",
+        "ropa_colores_variables": ["camiseta amarilla", "camiseta rosa", "camiseta morada", "camiseta azul", "pantalones azules", "pantalones negros", "pantalones grises"],
+        "ejemplo_prompt": "simple cartoon drawing, woman with WHITE circular head, large circular eyes, small nose, small mouth, LONG thick BLACK hair falling down sides densely drawn, WHITE skin on face and hands, human body wearing colored t-shirt and pants, standing, thick black outlines 3-4px, flat colors, clean simple style, vertical 9:16, white background"
+      },
+      "hijo": {
+        "descripcion": "Humano joven estilo meme, más pequeño que adultos",
+        "caracteristicas": "Cabeza circular blanca/gris (más pequeña), ojos círculos negros, cuerpo con camiseta de color, pantalones, brazos/piernas líneas negras, altura menor",
+        "ejemplo_prompt": "meme style character, small white circular head, simple black dot eyes, HUMAN body wearing t-shirt and pants, standing like human, shorter than adult, MS Paint style, simple outlines, flat colors, vertical 9:16, comedy meme"
+      },
+      "hija": {
+        "descripcion": "Humano joven estilo meme, más pequeña que adultos",
+        "caracteristicas": "Cabeza circular blanca/gris (más pequeña), ojos círculos negros, cuerpo con camiseta de color, pantalones/falda, pelo simple opcional (forma con moño), brazos/piernas líneas negras",
+        "ejemplo_prompt": "meme style character, small white circular head, simple black dot eyes, simple hair bow, HUMAN body wearing t-shirt and skirt, standing like human, MS Paint style, simple outlines, flat colors, vertical 9:16, meme"
+      },
+      "abuelo": {
+        "descripcion": "Humano mayor estilo meme con lentes simples",
+        "caracteristicas": "Cabeza circular blanca/gris, lentes (dos círculos simples), ojos círculos negros, cuerpo con camiseta, pantalones, brazos/piernas líneas negras",
+        "ejemplo_prompt": "meme style character, white circular head, simple round glasses, black dot eyes, HUMAN body wearing t-shirt and pants, standing like human, MS Paint style, simple outlines, flat colors, vertical 9:16, meme"
+      },
+      "abuela": {
+        "descripcion": "Humano mayor estilo meme con lentes y pelo gris simple",
+        "caracteristicas": "Cabeza circular blanca/gris, lentes (dos círculos), pelo gris simple (forma redondeada), ojos círculos negros, cuerpo con camiseta, pantalones/falda",
+        "ejemplo_prompt": "meme style character, white circular head, simple round glasses, gray hair shape, black dot eyes, HUMAN body wearing t-shirt and skirt, standing like human, MS Paint style, simple outlines, flat colors, vertical 9:16"
+      }
     }
   },
 
   "escenarios": {
-    "sala": "Sala de casa latinoamericana típica: sofá simple, TV al fondo, pared con cuadro o foto familiar, colores cálidos (beige, café, terracota), estilo minimalista cartoon",
-    "cocina": "Cocina familiar: mesa con sillas, refrigerador al fondo, alacena visible, colores cálidos y limpios, estilo minimalista cartoon",
-    "jardín": "Jardín/patio de casa: pasto verde, cerca de madera, cielo azul, algún árbol o arbusto simple, estilo minimalista cartoon",
-    "habitación": "Habitación familiar: cama simple, ventana con cortina, estante o mesa de noche, colores cálidos, estilo minimalista cartoon",
-    "auto": "Interior de auto familiar (vista frontal): asientos delanteros, volante, ventanas con paisaje exterior simple, colores neutros"
+    "NOTA_CRITICA": "FONDOS = FOTOS REALES o semi-realistas, NO ilustraciones. El objetivo es que el espectador se identifique: 'esa es MI casa'. Casas reales de clase media/baja latinoamericana. Formato VERTICAL 9:16.",
+
+    "sala": {
+      "descripcion": "FOTO REAL de sala de casa clase media/baja: sofá sencillo, pared con pintura lisa (puede tener imperfecciones), TV o mueble simple, iluminación natural, ambiente familiar real",
+      "prompt_ejemplo": "realistic photograph of simple living room, middle-class Latin American home, basic sofa, plain wall, natural lighting, vertical format 9:16, real house interior, photographic style"
+    },
+    "cocina": {
+      "descripcion": "FOTO REAL de cocina de casa clase media/baja: mesa sencilla, alacenas simples, puede tener detalles de uso real (trastes, ollas), pared con azulejo o pintura, iluminación natural, cocina familiar real",
+      "prompt_ejemplo": "realistic photograph of simple kitchen, middle-class Latin American family home, basic table and cabinets, lived-in look, natural lighting, vertical format 9:16, real kitchen interior, photographic style"
+    },
+    "jardín": {
+      "descripcion": "FOTO REAL de patio/jardín de casa clase media/baja: pasto natural, puede tener plantas simples, cerca sencilla, ambiente familiar real no jardín de revista",
+      "prompt_ejemplo": "realistic photograph of simple backyard, middle-class home, natural grass, basic fence, real family garden, vertical format 9:16, photographic style"
+    },
+    "habitación": {
+      "descripcion": "FOTO REAL de habitación de casa clase media/baja: cama sencilla, pared con pintura lisa, mueble simple, ambiente familiar real",
+      "prompt_ejemplo": "realistic photograph of simple bedroom, middle-class home, basic bed, plain wall, real room interior, vertical format 9:16, photographic style"
+    },
+    "auto": {
+      "descripcion": "FOTO REAL de interior de auto clase media: asientos sencillos, volante, vista desde asiento trasero o pasajero, auto real no de lujo",
+      "prompt_ejemplo": "realistic photograph of simple car interior, middle-class vehicle, basic seats and steering wheel, real car interior, vertical format 9:16, photographic style"
+    }
   },
 
   "cutaways": {
-    "estilo": "Ilustraciones cómicas exageradas que visualizan lo mencionado en el diálogo. Mismo estilo cartoon que los personajes: líneas simples, colores planos, rasgos exagerados. NUNCA usar memes reales o imágenes con copyright. NUNCA incluir texto en las imágenes.",
+    "NOTA_CRITICA": "Cutaways = FOTOS REALES de animales (gatos, perros) con expresiones exageradas. Estilo MEME VIRAL de internet. NO dibujos, NO ilustraciones. Fotos reales de mascotas con caras cómicas/sorprendidas/dramáticas.",
+    "estilo": "FOTOGRAFÍAS REALES de animales domésticos (gatos, perros) con expresiones naturales exageradas. Estilo meme viral como los que circulan en redes sociales. Foto de mascota real tomada en casa, con expresión cómica. NUNCA incluir texto en las imágenes (el texto se agrega después en edición).",
     "ejemplos": [
-      "Comida quemada: olla humeante con llamas exageradas, colores oscuros/negros",
-      "Control remoto perdido: sofá con cojines volteados, señal de búsqueda, estilo caótico",
-      "Celular con batería baja: celular cartoon con símbolo de batería roja parpadeante"
-    ]
+      "Gato sorprendido: FOTO REAL de gato con ojos muy abiertos y boca abierta, expresión sorprendida natural",
+      "Perro juzgando: FOTO REAL de perro mirando con cara de juicio/desaprobación",
+      "Gato meditando/zen: FOTO REAL de gato sentado tranquilo con ojos cerrados en pose relajada",
+      "Perro confundido: FOTO REAL de perro con cabeza ladeada y expresión confundida"
+    ],
+    "prompt_tipo": "realistic photograph, real [ANIMAL] with [EXPRESSION] expression, natural pet photo, meme style, vertical format 9:16, photographic"
   },
 
   "paleta_colores": {
     "personajes_calidos": ["#F4A460", "#DEB887", "#8B4513", "#FFDAB9"],
     "personajes_frios": ["#708090", "#2F4F4F", "#000000", "#FFFFFF"],
+    "cuerpo_personajes": ["#FFD700 (amarillo)", "#FFFFFF (blanco)", "#FFF8DC (crema)", "#FFB6C1 (rosa claro)"],
     "escenarios": ["#FFF8DC", "#FAEBD7", "#D2B48C", "#87CEEB"],
     "acentos": ["#FF6347", "#FFD700", "#32CD32", "#FF69B4"]
+  },
+
+  "plantillas_prompts_flux": {
+    "NOTA_CRITICA": "Estos prompts están optimizados para Flux en Replicate. SIEMPRE incluir: 'vertical format 9:16', 'stick figure', 'huge round eyes', 'minimalist'. NUNCA incluir: 'realistic', 'photo', 'detailed'.",
+
+    "mascota_sola": {
+      "estructura": "[ESPECIE] stick figure character with HUGE round eyes, simple [COLOR] body, thin arms and legs, [EXPRESION] expression, [POSE], minimalist cartoon style, flat colors, vertical format 9:16, animation-ready",
+      "ejemplo_perro": "dog stick figure character with HUGE round eyes, simple brown body, thin arms and legs, surprised expression, arms raised up, minimalist cartoon style, flat colors, vertical format 9:16, animation-ready",
+      "ejemplo_gato": "cat stick figure character with HUGE round eyes, simple gray body, thin arms and legs, whiskers, confused expression, hands on head, minimalist cartoon style, flat colors, vertical format 9:16, animation-ready"
+    },
+
+    "humano_solo": {
+      "estructura": "[ROL] stick figure character with HUGE round eyes, simple [COLOR] body, thin arms and legs, [ACCESORIOS], [EXPRESION] expression, [POSE], minimalist cartoon style, flat colors, vertical format 9:16, animation-ready",
+      "ejemplo_papa": "adult man stick figure character with HUGE round eyes, simple yellow body, thin arms and legs, simple tie, surprised expression, arms extended, minimalist cartoon style, flat colors, vertical format 9:16, animation-ready",
+      "ejemplo_mama": "adult woman stick figure character with HUGE round eyes, simple yellow body, thin arms and legs, simple hair, happy expression, pointing, minimalist cartoon style, flat colors, vertical format 9:16, animation-ready"
+    },
+
+    "personaje_con_fondo": {
+      "estructura": "[PERSONAJE_COMPLETO], [FONDO_MINIMALISTA], vertical format 9:16, simple composition, flat colors, minimalist cartoon style, animation-ready",
+      "ejemplo": "dog stick figure with huge eyes in living room, simple wall background, basic sofa, vertical format 9:16, flat colors, minimalist style"
+    },
+
+    "negative_prompts": {
+      "SIEMPRE_INCLUIR": "realistic, photo, photorealistic, detailed, complex, 3D render, shadows, gradients, textures, horizontal format, landscape orientation, messy, cluttered, multiple characters, text, watermark",
+      "razon": "Evitar realismo, complejidad, formato horizontal, y elementos que dificulten la animación"
+    },
+
+    "parametros_recomendados_flux": {
+      "aspect_ratio": "9:16 (CRÍTICO para Shorts)",
+      "guidance_scale": "7.5-8.5 (balance creatividad/adherencia)",
+      "num_inference_steps": "28-35 (calidad vs velocidad)",
+      "output_format": "png",
+      "output_quality": "90"
+    }
+  },
+
+  "checklist_antes_generar": {
+    "prompt": [
+      "✅ Incluye 'stick figure'",
+      "✅ Incluye 'huge round eyes' o 'HUGE round eyes'",
+      "✅ Incluye 'vertical format 9:16'",
+      "✅ Incluye 'minimalist cartoon style'",
+      "✅ Incluye 'flat colors'",
+      "✅ Incluye 'animation-ready'",
+      "✅ Especifica pose clara (arms raised, hands on head, pointing, etc.)",
+      "✅ Especifica expresión (surprised, happy, confused, etc.)"
+    ],
+    "negative_prompt": [
+      "✅ Incluye 'realistic, photo, detailed'",
+      "✅ Incluye 'horizontal format, landscape'",
+      "✅ Incluye 'shadows, gradients, textures'"
+    ],
+    "parametros": [
+      "✅ aspect_ratio = '9:16'",
+      "✅ guidance_scale entre 7.5-8.5",
+      "✅ num_inference_steps >= 28"
+    ]
   }
 }

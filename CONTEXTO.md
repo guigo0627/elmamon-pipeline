@@ -1,363 +1,339 @@
-# 🎬 CONTEXTO - elmamon-pipeline
+# CONTEXTO DEL PROYECTO - Pipeline de Videos Animados
 
-> **Archivo de sesión:** Lee este documento al inicio de cada sesión para retomar el proyecto
-
----
-
-## 📍 Estado Actual
-
-**Fecha última actualización:** 2026-09-04  
-**Fase del proyecto:** 1 - Validación (Exploratoria)  
-**Sesión actual:** Configuración completada + Primeros guiones generados  
-**Líneas de código:** ~2,200  
-
-### ✅ Completado Hoy (2026-09-04)
-
-**Infraestructura:**
-- ✅ Estructura modular y escalable del proyecto
-- ✅ Sistema de logging con colores (corregido encoding Windows)
-- ✅ Gestión de sesiones con timestamps
-- ✅ Documentación arquitectónica completa
-- ✅ Estructura de output organizada por carpetas numeradas (`###-yyyyMMdd`)
-
-**APIs Configuradas (4/4):**
-- ✅ **Claude API** (Anthropic) - $5 USD recargados
-- ✅ **Replicate API** - $10 USD recargados
-- ✅ **ElevenLabs API** - Acceso Full
-- ✅ **Hedra API** - Plan Free
-
-**Pipeline operativo (Etapas 1-1.5):**
-- ✅ **Etapa 1:** Generación de guion con Claude API
-  - Selección automática de elenco (2-3 personajes)
-  - Elección de especie de mascota (perro/gato/loro)
-  - Marcado de cutaways en el diálogo
-  - Output en JSON estructurado
-  - Guarda en carpetas numeradas: `output/###-yyyyMMdd/`
-- ✅ **Etapa 1.5:** Validación de guion contra 4 criterios
-  - Comedia efectiva (patrón de malentendido)
-  - Expresiones locales (México O Colombia, nunca mezclar)
-  - Identificación familiar
-  - Exageración y contraste
-  - Reescritura automática (hasta 2 reintentos)
-  - Validador actualizado: menos estricto, enfoque en semántica
-
-**Videos Generados:**
-- ✅ **Video 001-20260904:** "¿Dormiste bien?" → Filosofía del sueño (APROBADO)
-- ✅ **Video 002-20260904:** "¿Ya comiste?" → Filosofía del comer (APROBADO MANUAL)
-
-**Documentación:**
-- ✅ `docs/README.md` - Documentación completa
-- ✅ `docs/guides/INICIO_RAPIDO.md` - Quick start
-- ✅ `docs/guides/CONFIGURACION_PASO_A_PASO.md` - Guía detallada de configuración
-- ✅ `docs/architecture/ARQUITECTURA.md` - Arquitectura técnica
-- ✅ `docs/specs/` - Especificaciones, style bible, guiones de referencia
-- ✅ `docs/prompts/` - Prompts de IA versionados y optimizados
-
-### 🚧 En Desarrollo (Próximos pasos)
-
-1. **Etapa 2: Generación de imágenes** (`scripts/03_imagenes.py`)
-   - Integración con Replicate API (Flux/Ideogram)
-   - Generación de personajes según style bible
-   - Generación de fondo según escenario
-   - Generación de cutaways
-   - Remoción de fondo con rembg
-
-2. **Etapa 3-7:** Audio, animación, montaje, subtítulos
+**Última actualización:** 2026-09-10  
+**Versión:** 2.0 (Reset completo - Audio-First)
 
 ---
 
-## 📂 Estructura del Proyecto
+## 🎯 OBJETIVO DEL PROYECTO
+
+Pipeline 100% automatizado para generar videos tipo "Ignacio Animados" para YouTube Shorts y Facebook Reels:
+
+**INPUT:** Audio MP3/MPEG (conversación entre personajes)  
+**OUTPUT:** Video profesional animado (1080x1920, 30fps)
+
+### **Características del video objetivo:**
+- ✅ Personajes stick figure animados con rigging real
+- ✅ Movimientos de brazos, manos y cuerpo expresivos
+- ✅ Lip sync preciso sincronizado con audio
+- ✅ Background real (sala, cocina, etc)
+- ✅ Subtítulos tipo karaoke (amarillo progresivo)
+- ✅ Cortes dinámicos cada 2-3 segundos
+- ✅ Zoom programático en momentos clave
+- ✅ Insert de memes según contexto
+- ✅ Composición profesional
+
+---
+
+## 📊 ESTADO ACTUAL
+
+### **✅ DECISIONES TOMADAS:**
+1. **Reset completo del enfoque** (2026-09-10)
+2. **Input = Audio** (no más generación de guiones)
+3. **Arquitectura de 3 agentes especializados**
+4. **Timeline: 3 días desarrollo**
+
+### **❌ ENFOQUE ANTERIOR (DESCARTADO):**
+- Generación de guiones con Claude ❌
+- Generación de audio con ElevenLabs ❌
+- Personajes estáticos con bocas dibujadas ❌
+- Meta Animated Drawings (nunca funcionó) ❌
+- Composición simple sin cortes dinámicos ❌
+
+**Razón del reset:** Una semana de trabajo sin resultados cercanos al objetivo
+
+---
+
+## 🏗️ ARQUITECTURA V2 (AUDIO-FIRST)
+
+### **FLUJO COMPLETO:**
+
+```
+INPUT: Audio (conversación 2 personas)
+    ↓
+1. TRANSCRIPCIÓN
+   - AssemblyAI: Transcripción + Speaker Diarization
+   - Identificar voces A y B
+   - Timestamps palabra por palabra
+   - Análisis emocional
+    ↓
+2. AGENTE 1: Director de Animación (Claude)
+   - Identifica género de speakers
+   - Selecciona personajes
+   - Planifica expresiones por segmento
+   - Genera keyframes para gestos
+    ↓
+3. ANIMACIÓN
+   - Manim Community: Rigging de personajes
+   - Rhubarb: Lip sync preciso
+   - Gestos programáticos (manos, brazos)
+    ↓
+4. AGENTE 2: Editor de Video (Claude)
+   - Planifica cortes cada 2-3s
+   - Determina momentos para zoom
+   - Selecciona memes según contexto
+    ↓
+5. COMPOSICIÓN PROFESIONAL
+   - MoviePy: Compositor principal
+   - Cortes dinámicos
+   - Zoom programático
+   - Subtítulos karaoke
+   - Insert de memes
+    ↓
+OUTPUT: video_final.mp4 (profesional)
+```
+
+---
+
+## 💰 PRESUPUESTO Y COSTOS
+
+### **Inversión inicial:** $10 USD (crédito Replicate)
+### **Gastado hasta ahora:** ~$0.40 USD (pruebas Flux)
+### **Disponible:** ~$9.60 USD
+
+### **Costo por video (estimado):**
+- AssemblyAI transcripción: $0.0075 (30s de audio)
+- Manim + Rhubarb: $0.00 (gratis, local)
+- MoviePy: $0.00 (gratis, local)
+
+**Total: ~$0.01 USD/video** ✅  
+**Capacidad: ~900 videos con presupuesto restante**
+
+---
+
+## 🛠️ TECNOLOGÍAS CLAVE
+
+### **APIs Externas:**
+- **AssemblyAI:** Transcripción + Speaker Diarization
+- **Anthropic Claude:** Agentes inteligentes (análisis, planificación)
+
+### **Librerías Python:**
+- **Manim Community:** Animación programática con rigging
+- **MoviePy:** Compositor de video profesional
+- **Rhubarb Lip Sync:** Sincronización labial
+- **OpenCV:** Procesamiento de imágenes
+- **Pillow:** Manipulación de assets
+
+---
+
+## 📁 ESTRUCTURA DEL PROYECTO
 
 ```
 elmamon-pipeline/
-├── CONTEXTO.md                    ← ESTE ARCHIVO (estado del proyecto)
-├── .env                           ← Credenciales (NO subir a git)
-├── .env.template                  ← Plantilla de configuración
-├── requirements.txt               ← Dependencias Python
-├── pipeline.py                    ← Orquestador principal
+├── assets/
+│   ├── input_audios/         # 🎵 Audios de entrada
+│   ├── personajes_base/      # 🎭 Personajes stick figure
+│   ├── backgrounds/          # 🖼️ Fondos reales
+│   └── memes/               # 😂 Banco de memes
 │
-├── docs/                          ← Documentación centralizada
-│   ├── README.md                  ← Documentación completa
-│   ├── architecture/
-│   │   └── ARQUITECTURA.md        ← Arquitectura técnica
-│   ├── guides/
-│   │   ├── INICIO_RAPIDO.md       ← Quick start
-│   │   └── CONFIGURACION_PASO_A_PASO.md
-│   ├── specs/
-│   │   ├── requerimientos-originales.md
-│   │   ├── style_bible.json       ← Guía de estilo visual
-│   │   └── guiones_referencia.md  ← Ejemplos de guiones
-│   └── prompts/                   ← Prompts versionados
-│       ├── prompt_guion.txt       ← Generación de guion
-│       └── prompt_validador.txt   ← Validación de guion
+├── scripts/
+│   ├── pipeline_v2/         # 🚀 NUEVO pipeline
+│   │   ├── 01_transcribe.py
+│   │   ├── 02_analyze.py
+│   │   ├── 03_characters.py
+│   │   ├── 04_animate.py
+│   │   ├── 05_lipsync.py
+│   │   ├── 06_edit_plan.py
+│   │   ├── 07_compose.py
+│   │   ├── run_pipeline.py
+│   │   └── agents/
+│   │       ├── animation_director.py
+│   │       ├── video_editor.py
+│   │       └── pipeline_engineer.py
+│   │
+│   └── [scripts antiguos archivados]
 │
-├── scripts/                       ← Pipeline scripts
-│   ├── utils.py                   ← Utilidades compartidas
-│   ├── 01_guion.py               ← ✅ Generación de guion
-│   ├── 02_validador.py           ← ✅ Validación de guion
-│   ├── 03_imagenes.py            ← 🚧 TODO
-│   ├── 04_audio.py               ← 🚧 TODO
-│   ├── 05_animacion.py           ← 🚧 TODO
-│   ├── 06_montaje.py             ← 🚧 TODO
-│   ├── 07_subtitulos.py          ← 🚧 TODO
-│   ├── 08_publicacion.py         ← ⏸️ Fase 2+
-│   └── test_setup.py             ← Verificador de configuración
+├── output/
+│   └── ###-yyyyMMdd/           # Ejemplo: 001-20260910
+│       ├── transcription.json  # Transcripción con speakers
+│       ├── animation_plan.json # Plan de animación (AGENTE 1)
+│       ├── edit_timeline.json  # Timeline de edición (AGENTE 2)
+│       ├── animated_scenes/    # Escenas animadas
+│       ├── audio/             # Archivos de audio originales
+│       └── video_final.mp4    # Video renderizado final
 │
-├── output/                        ← Videos finales organizados
-│   ├── 001-20260904/              ← Video #1 (APROBADO)
-│   │   ├── guion.json
-│   │   ├── APROBADO.txt
-│   │   ├── validacion_intento*.json
-│   │   ├── personajes/
-│   │   ├── audio/
-│   │   ├── animaciones/
-│   │   └── cutaways/
-│   └── 002-20260904/              ← Video #2 (APROBADO MANUAL)
-│       └── ...
+├── tools/
+│   └── rhubarb/             # Lip sync (mantener)
 │
-├── assets_temp/                   ← Temporales (ignorados en git)
-├── logs/                          ← Logs por sesión (ignorados en git)
-└── temp/                          ← Temporales (ignorados en git)
+├── docs/
+│   ├── archive/             # Documentación histórica
+│   ├── specs/              # Especificaciones
+│   └── architecture/       # Diagramas y arquitectura
+│
+├── CONTEXTO.md             # 📋 Este archivo (único source of truth)
+└── README.md              # Instrucciones básicas
 ```
 
 ---
 
-## 🎯 Roadmap
+## 📋 PLAN DE DESARROLLO (3 DÍAS)
 
-### Fase 1 - Validación (ACTUAL)
-**Objetivo:** Generar 10 videos de prueba con planes gratuitos para validar calidad.
+### **DÍA 1: FUNDAMENTOS**
+**Objetivo:** Transcripción y análisis inteligente funcionando
 
-**Estado actual:**
-- ✅ Etapas 1-1.5: Guion + Validación (COMPLETADAS)
-- ✅ 2 videos con guiones aprobados
-- 🚧 Etapas 2-7: Generación completa del video (PENDIENTE)
-- ⏸️ Etapa 8: Publicación (Pospuesto a Fase 2)
+- [x] Reorganizar proyecto y limpiar archivos antiguos
+- [ ] Instalar AssemblyAI SDK
+- [ ] Implementar módulo de transcripción
+- [ ] Crear AGENTE 1 (Director de Animación)
+- [ ] Probar con Audio_prueba.mpeg
+- [ ] Validar output: transcription.json + animation_plan.json
 
-**Límites de Fase 1:**
-- ElevenLabs Full: Suficiente para fase 1
-- Hedra Free: ~7 videos/mes → **LIMITANTE PRINCIPAL**
-- Costo por video: ~$1.50 USD (guion + validación + imágenes)
-- Presupuesto Fase 1: $15-20 USD restantes
-
-### Fase 2 - Lanzamiento
-**Objetivo:** Publicación automática, 3 videos/semana.
-
-**Cambios:**
-- Planes básicos de APIs (Hedra Basic)
-- Activar Etapa 8: Publicación con n8n
-- Integración con Meta Graph API + YouTube Data API
-- Costo estimado: ~$40-50/mes
-
-### Fase 3 - Escalado
-**Objetivo:** Publicación diaria, ~30 videos/mes.
-
-**Cambios:**
-- Planes profesionales de APIs
-- Procesamiento en paralelo
-- Cache de assets recurrentes
-- Queue system (Redis/Celery)
-- Costo estimado: ~$150-200/mes
+**Resultado esperado:** Sistema detecta voces, identifica género, genera plan de animación
 
 ---
 
-## 🚀 Próximos Pasos Inmediatos
+### **DÍA 2: ANIMACIÓN REAL**
+**Objetivo:** Personajes animados con gestos y lip sync
 
-### 0. Investigar Conectores/MCP para Reducir Costos 🔍 **PRIORITARIO**
+- [ ] Instalar Manim Community
+- [ ] Crear templates de personajes stick figure
+- [ ] Sistema de gestos programáticos
+- [ ] Integrar Rhubarb para lip sync
+- [ ] Generar primera escena animada
 
-**Objetivo:** Explorar si Claude tiene conectores (MCP) disponibles que puedan generar videos completos o parciales, reduciendo la necesidad de múltiples APIs.
-
-**Opciones a investigar:**
-- [ ] **YouTube ART** o herramientas similares de generación de video
-- [ ] Conectores MCP disponibles en Claude
-- [ ] APIs alternativas más económicas para:
-  - Generación de imágenes (alternativas a Replicate)
-  - Síntesis de voz (alternativas a ElevenLabs)
-  - Animación de personajes (alternativas a Hedra)
-- [ ] Soluciones open-source que podamos hostear localmente
-
-**Beneficio esperado:**
-- Reducir costos de $1.50/video a < $0.50/video
-- Simplificar el pipeline (menos APIs = menos complejidad)
-- Posibilidad de generar más videos en Fase 1
-
-**Referencias:**
-- Claude MCP: https://docs.anthropic.com/en/docs/build-with-claude/mcp
-- Investigar en Claude Code si hay plugins/herramientas disponibles
+**Resultado esperado:** Video corto con personaje animado + lip sync funcional
 
 ---
 
-### 1. Desarrollar Etapa 2: Generación de Imágenes 🎨
+### **DÍA 3: COMPOSICIÓN PROFESIONAL**
+**Objetivo:** Video completo con edición dinámica
 
-**Archivo:** `scripts/03_imagenes.py`
+- [ ] Crear AGENTE 2 (Editor de Video)
+- [ ] Sistema de cortes dinámicos
+- [ ] Zoom programático
+- [ ] Subtítulos karaoke
+- [ ] Insert automático de memes
+- [ ] Renderizado final optimizado
 
-**Tareas:**
-- [ ] Integrar Replicate API (o alternativa más económica)
-- [ ] Cargar style_bible.json
-- [ ] Generar personajes (mascota + humanos)
-- [ ] Generar fondo según escenario
-- [ ] Generar cutaways según marcas en el guion
-- [ ] Remoción de fondo con rembg
-- [ ] Guardar en `output/###-yyyyMMdd/personajes/`
-
-**Probar con:** Video 001-20260904
-
-**Nota:** Esperar a investigación de conectores antes de implementar
-
-### 2. Documentar aprendizajes
-
-**Lecciones de hoy:**
-- El validador debe ser estricto en lo importante (no mezclar países) pero flexible en detalles
-- La estructura de carpetas numeradas facilita enormemente la organización
-- Los guiones requieren 1-2 reintentos en promedio para aprobarse
-- Costo real por guion aprobado: ~$0.75-1.00 USD
+**Resultado esperado:** VIDEO COMPLETO de calidad profesional (80-90% del referente)
 
 ---
 
-## 💰 Inversión y Costos
+## 🎯 REFERENCIAS Y OBJETIVOS
 
-### Inversión inicial realizada:
-- Claude API: $5 USD
-- Replicate API: $10 USD
-- ElevenLabs: Acceso Full
-- Hedra: Plan Free
-- **Total:** $15 USD
+### **Videos de referencia:**
+1. "Ignacio Animados" (TikTok/Instagram)
+   - Personajes stick simples pero muy expresivos
+   - Animación fluida de brazos y manos
+   - Background real (sala con sofá)
+   - Subtítulos profesionales
 
-### Costos de hoy:
-- Generación de 2 guiones: ~$1.00 USD
-- Validaciones (6 intentos): ~$1.50 USD
-- **Total gastado hoy:** ~$2.50 USD
+2. Video ejemplo compartido por usuario:
+   - Dos personajes conversando
+   - Gestos corporales según emoción
+   - Composición dinámica
 
-### Presupuesto restante:
-- Claude + Replicate: ~$12.50 USD
-- Suficiente para: 8-10 videos más con guion + imágenes
+**Meta de calidad:** 80-90% del referente con pipeline automatizado
 
 ---
 
-## 📊 Métricas de Éxito (Fase 1)
+## 🎭 PERSONAJES DISPONIBLES
 
-### Objetivo principal
-✅ Generar 10 videos completos que cumplan:
-1. ✅ Guion aprobado (4 criterios) → **2/10 logrados**
-2. 🚧 Calidad visual (personajes + animación reconocibles)
-3. 🚧 Audio claro y cómico
-4. 🚧 Duración ≤30 segundos
-5. 🚧 Formato vertical 1080x1920
+### **Familia:**
+- mamá / mujer
+- papá / hombre
+- hijo_mayor
+- hijo_menor
+- hija
 
-### Criterio de aprobación de Fase 1
-- Al menos 7/10 videos cumplen todos los criterios
-- Feedback positivo de 3+ personas del público objetivo (12-35 años)
-- Costo real ≤ $20/mes
+### **Círculo social:**
+- amigo
+- mejor_amigo
+- compa
+- vecino
 
-**Si se aprueba Fase 1 → Escalar a Fase 2**
+**Detección automática:** Sistema identifica género por análisis de voz y selecciona personaje apropiado
 
 ---
 
-## 🐛 Debugging
+## ⚙️ CONFIGURACIÓN
 
-### Logs por sesión
-```bash
-# Ver último log
-ls -lt logs/ | head -2
-
-# Ver log específico
-cat logs/20260904_*.json | py -m json.tool
+### **Variables de entorno (.env):**
+```env
+ASSEMBLYAI_API_KEY=tu_key_aqui
+ANTHROPIC_API_KEY=tu_key_aqui
 ```
 
-### Ver guiones generados
-```bash
-# Listar videos
-ls -la output/
-
-# Ver guion de un video
-cat output/001-20260904/guion.json | py -m json.tool
-```
-
-### Limpiar temporales
-```bash
-# Limpiar assets temporales
-rm -rf assets_temp/*
-
-# Limpiar carpeta temp
-rm -rf temp/*
-```
+### **Especificaciones de video:**
+- Resolución: 1080x1920 (9:16 vertical)
+- FPS: 30
+- Codec: H.264
+- Audio: AAC 128kbps
+- Formato: MP4
 
 ---
 
-## 📚 Recursos Importantes
+## 📝 APRENDIZAJES CLAVE
 
-### Documentación
-- **Arquitectura completa:** `docs/architecture/ARQUITECTURA.md`
-- **Guía de inicio:** `docs/guides/INICIO_RAPIDO.md`
-- **Configuración paso a paso:** `docs/guides/CONFIGURACION_PASO_A_PASO.md`
-- **Especificaciones:** `docs/specs/`
-- **README principal:** `docs/README.md`
+### **❌ Lo que NO funcionó (V1):**
+1. Meta Animated Drawings - No compatible con Python 3.14
+2. Flux para variaciones de personajes - Cambia todo el estilo
+3. Personajes estáticos con bocas dibujadas - No se ve profesional
+4. Composición simple - Muy aburrida, no engancha
+5. Pipeline guion → audio - Muy complejo e innecesario
 
-### APIs Configuradas
-1. **Claude API:** https://console.anthropic.com/
-2. **Replicate API:** https://replicate.com/
-3. **ElevenLabs API:** https://elevenlabs.io/
-4. **Hedra API:** https://www.hedra.com/
-
-### Herramientas
-- **ffmpeg:** Para montaje y subtítulos (instalado)
-- **rembg:** Para remoción de fondo (instalado)
+### **✅ Lo que SÍ funciona (V2):**
+1. Input = Audio directo
+2. Transcripción automática con AssemblyAI
+3. Agentes especializados para planificación
+4. Manim para animación programática
+5. Composición dinámica con cortes frecuentes
 
 ---
 
-## ✅ Checklist de Sesión
+## 🚨 RESTRICCIONES CRÍTICAS
 
-Al iniciar una sesión:
-- [ ] Leer este CONTEXTO.md completo
-- [ ] Revisar última fecha de actualización
-- [ ] Verificar fase actual del proyecto
-- [ ] Revisar "Próximos pasos inmediatos"
-- [ ] Revisar últimos logs si hubo trabajo previo
-
-Al terminar una sesión:
-- [x] Actualizar sección "Estado Actual"
-- [x] Actualizar "Próximos pasos inmediatos"
-- [x] Documentar decisiones importantes
-- [x] Commitear cambios si hay progreso significativo
+1. **$0 inversión adicional** (trabajar con $9.60 restantes)
+2. **0 intervención manual por video** (después de setup)
+3. **Pipeline 100% automatizado**
+4. **Generación en minutos, no horas** (15-25 min/video)
+5. **Calidad profesional** (80-90% del referente)
 
 ---
 
-## 🎓 Aprendizajes y Decisiones
+## 📊 MÉTRICAS DE ÉXITO
 
-### Decisiones de diseño
-1. **Modularidad estricta:** Cada etapa es independiente y testeable
-2. **Estado persistente:** Todos los outputs se guardan para debugging
-3. **Configuración externalizada:** Prompts y specs fuera del código
-4. **Escalabilidad desde diseño:** Preparado para Fase 2 y 3 sin refactoring
-5. **Documentación centralizada:** Todo en docs/, solo CONTEXTO.md en raíz
-6. **Output organizado:** Carpetas numeradas `###-yyyyMMdd` por cada video
+### **Calidad:**
+- [ ] Personajes animados con gestos expresivos
+- [ ] Lip sync preciso y convincente
+- [ ] Cortes dinámicos cada 2-3s
+- [ ] Subtítulos karaoke funcionando
+- [ ] Video enganchante (no aburrido)
 
-### Lecciones aprendidas (2026-09-04)
-1. **Validador flexible:** Debe ser estricto en lo importante (no mezclar países) pero flexible en detalles menores
-2. **Consistencia de país:** NUNCA mezclar expresiones mexicanas y colombianas en el mismo guion
-3. **Estructura numerada:** Las carpetas `001-yyyyMMdd` facilitan tracking y organización
-4. **Reintentos son normales:** Los guiones requieren 1-2 reintentos en promedio
-5. **Costo real:** ~$0.75-1.00 USD por guion aprobado (incluyendo reintentos)
-6. **Encoding Windows:** Necesario configurar UTF-8 explícitamente en scripts
+### **Técnico:**
+- [ ] Tiempo generación: <30 min/video
+- [ ] Costo: <$0.02/video
+- [ ] Sin intervención manual
+- [ ] Reproducible con cualquier audio
 
-### Prompts optimizados
-- **Generador:** Debe elegir México O Colombia al inicio, mínimo 3 expresiones del mismo país
-- **Validador:** Flexible en detalles, estricto en no mezclar países y en estructura básica
+### **Negocio:**
+- [ ] Primer video completo en 3 días
+- [ ] Pipeline funcional para 10+ videos
+- [ ] Dentro del presupuesto de $10 USD
 
 ---
 
-## 🔐 Seguridad
+## 🔗 RECURSOS
 
-- ✅ `.env` en `.gitignore` (credenciales nunca se suben)
-- ✅ `.env.template` con valores de ejemplo
-- ✅ Validación de API keys en tiempo de ejecución
-- ✅ `assets_temp/`, `logs/`, `temp/` en `.gitignore`
-- ✅ Workspace ID configurado para Claude API
+### **Documentación técnica:**
+- Ver `docs/architecture/` para diagramas
+- Ver `docs/specs/` para especificaciones detalladas
+
+### **APIs:**
+- AssemblyAI Docs: https://www.assemblyai.com/docs
+- Manim Community: https://docs.manim.community
+- Rhubarb Lip Sync: https://github.com/DanielSWolf/rhubarb-lip-sync
 
 ---
 
-**Última sesión:** 2026-09-04 (23:30)  
-**Duración:** ~4 horas  
-**Progreso:** Configuración completa + 2 guiones aprobados  
-**Próxima sesión:** Desarrollar Etapa 2 (generación de imágenes)  
-**Bloqueadores actuales:** Ninguno  
-**Inversión total:** $15 USD inicial + $2.50 USD hoy = $17.50 USD
+## 🎬 SIGUIENTE PASO
+
+**AHORA:** Implementar módulo de transcripción (01_transcribe.py)  
+**LUEGO:** Crear AGENTE 1 y probar con audio real  
+**META:** Primer video completo en 3 días
+
+---
+
+**Estado:** En desarrollo activo (Día 1)  
+**Bloqueadores:** Ninguno  
+**Energía del equipo:** 🔥 Alta - enfoque correcto esta vez
