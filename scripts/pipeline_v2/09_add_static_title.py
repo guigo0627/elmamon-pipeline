@@ -43,19 +43,20 @@ def create_static_title(text, video_duration, video_size=(1080, 1920)):
     """
     # Configuración del título (parte superior)
     # Usar Arial Bold con path completo (Windows) para UTF-8
+    # Ajustado para área segura de Facebook Reels (15% desde arriba)
     title = TextClip(
         text=text,
         font='C:/Windows/Fonts/arialbd.ttf',  # Arial Bold con soporte UTF-8
-        font_size=70,
+        font_size=65,  # Reducido de 70 a 65 para mejor ajuste
         color='white',
         stroke_color='black',
         stroke_width=3,
         method='caption',
-        size=(video_size[0] - 80, None)  # Márgenes
+        size=(video_size[0] - 100, None)  # Márgenes 50px cada lado
     )
 
-    # Posicionar en parte superior (8% desde arriba para dar espacio a 2 líneas)
-    title = title.with_position(('center', int(video_size[1] * 0.08)))
+    # Posicionar en área segura de Facebook (15% desde arriba)
+    title = title.with_position(('center', int(video_size[1] * 0.15)))
 
     # Duración completa del video
     title = title.with_duration(video_duration)
