@@ -11,6 +11,16 @@ temp/
 # Videos generados (no subir al repo)
 output/
 
+# Archivos de audio e imágenes grandes (input)
+assets/input_audios/*.wav
+assets/input_audios/*.mpeg
+assets/input_audios/*.mp3
+assets/input_audios/*.png
+assets/input_audios/*.jpg
+
+# Archivos temporales de preview
+preview_*.txt
+
 # Python
 __pycache__/
 *.py[cod]
