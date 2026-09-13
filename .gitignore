@@ -46,3 +46,7 @@ wheels/
 # OS
 .DS_Store
 Thumbs.db
+
+# Claude Code memory (local)
+.claude/memory/
+.claude/projects/
